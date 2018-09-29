@@ -7,33 +7,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        *{margin:0;padding:0;box-sizing: border-box;}
-        :root{
-            --button-height:32px;
-            --font-size:14px;
-            --button-bg:white;
-            --button-active-bg:#eee;
-            --border-radius:4px;
-            --color:#333;
-            --border-color:#999;
-            --border-color-hover:#666;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        #app{
-            margin:20px;
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
         }
-        body{
-            font-size:var(--font-size);
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size);
         }
     </style>
     <style>
 
-
+        .icon {
+            width: 1em;
+            height: 1em;
+        }
     </style>
 </head>
 <body>
 <div id="app">
-    <g-button></g-button>
+    <g-button icon="setting">
+        按钮
+    </g-button>
+    <g-button icon="">
+        按钮
+    </g-button>
+    <g-button icon="right" icon-position="right">
+        按钮
+    </g-button>
 </div>
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_853472_6ti1uywcfb4.js"></script>
 </body>
 </html>
