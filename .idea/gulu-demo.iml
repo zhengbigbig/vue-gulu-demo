@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="font_853472_cg9af6dzzpb" level="application" />
+    <orderEntry type="library" name="font_853472_c7dbq8g1bkh" level="application" />
   </component>
 </module>
