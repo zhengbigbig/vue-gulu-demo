@@ -5,7 +5,7 @@
             @input="$emit('input', $event.target.value)"
             @focus="$emit('focus', $event.target.value)"
             @blur="$emit('blur', $event.target.value)"
-        >
+        />
         <template v-if="error">
             <g-icon name="error" class="icon-error"></g-icon>
             <span class="errorMessage">{{error}}</span>
@@ -19,7 +19,6 @@
         components:{
             'g-icon':Icon
         },
-        name: "input",
         props: {
             value: {
                 type: String
