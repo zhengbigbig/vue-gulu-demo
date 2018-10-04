@@ -1,6 +1,6 @@
 const expect = chai.expect;
 import Vue from 'vue'
-import Input from '../src/input'
+import InputComponent from '../src/input-component'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
@@ -9,10 +9,10 @@ describe('Input', () => {
     //BDD 行为驱动测试
     //行为描述
     it('存在.', () => {
-        expect(Input).to.exist
+        expect(InputComponent).to.exist
     })
     describe('props',()=> {
-        const Constructor = Vue.extend(Input)
+        const Constructor = Vue.extend(InputComponent)
         let vm
         afterEach(()=>{
             vm.$destroy()
