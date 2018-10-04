@@ -1,12 +1,12 @@
 <template>
-    <div class="toast" ref="wrapper" :class="toastClasses">
-        <div class="message">
-            <slot v-if="!enableHtml"></slot>
-            <div v-else v-html="$slots.default[0]"></div>
+        <div class="toast" ref="wrapper" :class="toastClasses">
+            <div class="message">
+                <slot v-if="!enableHtml"></slot>
+                <div v-else v-html="$slots.default[0]"></div>
+            </div>
+            <div class="line" ref="line"></div>
+            <span class="close" v-if="closeButton" @click="onClickClose">{{closeButton.text}}</span>
         </div>
-        <div class="line" ref="line"></div>
-        <span class="close" v-if="closeButton" @click="onClickClose">{{closeButton.text}}</span>
-    </div>
 </template>
 <script>
     export default {
@@ -68,6 +68,7 @@
             },
             close(){
                 this.$el.remove()
+                this.$emit('close')
                 this.$destroy()
             },
             log(message){
@@ -87,7 +88,12 @@
     $font-size:14px;
     $toast-min-height:40px;
     $toast-background:rgba(0,0,0,.75);
+    @keyframes fade-in {
+        0% {opacity: 0;transform: translateY(100%)}
+        100% {opacity: 1;transform: translateY(0)}
+    }
     .toast {
+        animation: fade-in 1s;
         font-size:$font-size;
         line-height:1.8;
         min-height:$toast-min-height;
@@ -101,6 +107,7 @@
         border-radius: 4px;
         background:$toast-background;
         box-shadow: 0 0 3px 0 rgba(0,0,0,.5) ;
+
         > .line{
             height:100%;
             border-left:1px solid #666;

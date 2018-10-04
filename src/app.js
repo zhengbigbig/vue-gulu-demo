@@ -44,7 +44,7 @@ new Vue({
                     }
                 },
                 autoClose:true,
-                autoCloseDelay:5,
+                autoCloseDelay:55,
                 position:'middle'
             })
         }
