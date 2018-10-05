@@ -5,6 +5,7 @@
 </template>
 
 <script>
+    import Vue from 'vue'
     export default {
         name: "Gulutabs",
         props: {
@@ -18,6 +19,16 @@
                 validator(value){
                     return ['horizontal','vertical'].indexOf(value) >= 0
                 }
+            }
+        },
+        provide(){
+          return {
+              eventBus: this.eventBus
+          }
+        },
+        data(){
+            return{
+                eventBus:new Vue()
             }
         },
         created(){
