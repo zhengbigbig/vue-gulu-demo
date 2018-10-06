@@ -29,7 +29,7 @@ describe('Toast', () => {
                 vm.$destroy()
             })
         })
-        it('接收 closeButton',()=>{
+        it('接收 closeButton',(done)=>{
             const callback = sinon.fake();
             let div = document.createElement('div')
             document.body.appendChild(div)
@@ -44,8 +44,12 @@ describe('Toast', () => {
             }).$mount(div)
             let closeButton = vm.$el.querySelector('.close')
             expect(closeButton.textContent.trim()).to.eq('关闭吧')
-            closeButton.click()
-            expect(callback).to.have.been.called
+            setTimeout(()=>{
+                closeButton.click()
+                expect(callback).to.have.been.called
+                done()
+            },200)
+
         })
         it( '接受 enableHtml',()=>{
             const Constructor = Vue.extend(Toast)
