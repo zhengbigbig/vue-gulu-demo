@@ -7,7 +7,7 @@
 <script>
     import Vue from 'vue'
     export default {
-        name: "Gulutabs",
+        name: "GuluTabs",
         props: {
             selected: {
                 type: String,
@@ -35,6 +35,10 @@
             // this.$emit('update:selected',xxx)
         },
         mounted(){
+            if(this.$children.length === 0){
+                console && console.warn &&
+                console.warn('tabs子组件应该是tabs-head和tabs-body,但你没有写子组件')
+            }
             this.$children.forEach((vm)=>{
                 if(vm.$options.name === 'GuluTabsHead'){
                     vm.$children.forEach((childVm)=>{

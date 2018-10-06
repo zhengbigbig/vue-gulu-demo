@@ -32,14 +32,17 @@
             }
         },
         created(){
-            this.eventBus.$on('update:selected',(name)=>{
-                this.active = name === this.name;
-            })
+            if(this.eventBus){
+                this.eventBus.$on('update:selected',(name)=>{
+                    this.active = name === this.name;
+                })
+            }
         },
         methods:{
             onClick(){
                 if(this.disabled){return }
-                this.eventBus.$emit('update:selected',this.name,this)
+                this.eventBus && this.eventBus.$emit('update:selected',this.name,this)
+                this.$emit('click',this)
             }
         }
     }
@@ -47,6 +50,7 @@
 
 <style scoped lang="scss">
     $active-color:blue;
+    $disabled-text-color: grey;
     .tabs-item {
         padding:0 1em;
         flex-shrink: 0;
@@ -56,7 +60,11 @@
         align-items: center;
         &.active {
             color:$active-color;
-            /*font-weight: bold;*/
+            font-weight: bold;
+        }
+        &.disabled {
+            color: $disabled-text-color;
+            cursor: not-allowed;
         }
     }
 </style>
