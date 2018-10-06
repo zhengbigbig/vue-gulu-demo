@@ -12,6 +12,11 @@ import Content from './content'
 import Header from './header'
 import Toast from './toast'
 import Plugin from './plugin'
+import Tabs from './tabs'
+import TabsBody from './tabs-body'
+import TabsHead from './tabs-head'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs-pane'
 
 Vue.use(Plugin)
 Vue.component('g-button',Button)
@@ -26,15 +31,28 @@ Vue.component('g-footer',Footer)
 Vue.component('g-content',Content)
 Vue.component('g-header',Header)
 Vue.component('g-toast',Toast)
+Vue.component('g-tabs',Tabs)
+Vue.component('g-tabs-head',TabsHead)
+Vue.component('g-tabs-body',TabsBody)
+Vue.component('g-tabs-item',TabsItem)
+Vue.component('g-tabs-pane',TabsPane)
 
 new Vue({
     el:'#app',
     data:{
-        loading1:false,
-        message:'hello world'
+        selectedTab:'woman'
     },
     methods:{
-        showToast(){
+        showToast1(){
+            this.showToast('top')
+        },
+        showToast2(){
+            this.showToast('middle')
+        },
+        showToast3(){
+            this.showToast('bottom')
+        },
+        showToast(options){
             this.$toast('我是message',{
                 enableHtml:false,
                 closeButton:{
@@ -43,9 +61,8 @@ new Vue({
                         toast.log('请写入下一步代码')
                     }
                 },
-                autoClose:true,
-                autoCloseDelay:55,
-                position:'middle'
+
+                position:options
             })
         }
     },
