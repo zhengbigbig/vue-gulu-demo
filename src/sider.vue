@@ -1,37 +1,36 @@
 <template>
-    <transition name="slide">
-        <div class="sider" v-if="visible">
-            <slot></slot>
-            <button class="button" @click="visible=false">close</button>
-        </div>
-    </transition>
+  <transition name="slide">
+    <div class="sider" v-if="visible">
+    <slot></slot>
+      <button @click="visible=false">close</button>
+  </div>
+  </transition>
 </template>
-
 <script>
-    export default {
-        name:'GuluSider',
-        data(){
-            return {
-                visible: true
-            }
-        }
-    }
+  export default {
+    name: 'GuluSider',
+    data () {
+      return {
+        visible: true
+      }
+    },
+    methods: {}
+  }
 </script>
 
-<style scoped lang="scss">
-    .sider{
-        position: relative;
-        > .button{
-            position: absolute;
-            top:0;
-            right:0;
-            z-index:1;
-        }
+<style lang="scss" scoped>
+  .sider {
+    position: relative;
+    > button {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
-    .slide-enter-active, .slide-leave-active{
-        transition:all .5s;
-    }
-    .slide-enter, .slide-leave-to{
-        margin-left:-50px;
-    }
+  }
+  .slide-enter-active, .slide-leave-active {
+    transition: all .3s;
+  }
+  .slide-enter, .slide-leave-to {
+    margin-left: -200px;
+  }
 </style>
