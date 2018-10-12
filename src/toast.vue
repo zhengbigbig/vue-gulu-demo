@@ -104,6 +104,7 @@
     left: 50%;
     transform: translateX(-50%);
     $animation-duration: 300ms;
+    z-index:9999;
     &.position-top {
       top: 0;
       .toast {
